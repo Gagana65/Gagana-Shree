@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #d29b9b;
+            margin: 50px;
+        }
+        h1 {
+            color: #363131;
+        }
+        textarea {
+            width: 80%;
+            height: 100px;
+            margin: 10px;
+            padding: 10px;
+            font-size: 13px;
+            border-radius: 5px;
+            border: 1px solid #310d0d;
+        }
+        button {
+            background: hsl(212, 47%, 14%);
+            color: rgb(225, 221, 221);
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #09111b;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Text to Speech Converter</h1>
+    <textarea id="text" placeholder="Type your text here..." background-color=""></textarea>
+    <button onclick="speak()">Convert to Speech</button>
+
+    <script>
+        function speak() {
+            let text = document.getElementById("text").value;
+            if (text.trim() ==="") {
+                alert("Please enter some text!");
+                return;
+            }
+            let speech = new SpeechSynthesisUtterance(text);
+            speechSynthesis.speak(speech);
+        }
+
+    </script>
+
+</body>
+</html>
